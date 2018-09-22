@@ -6,5 +6,10 @@ Counts frequency of whole and glossed words, sorting from highest-lowest frequen
 Counts number of words per line in wholeWord file. Not sorted.
 
 **Usage**  
-`./WordCount.sh wholeWordFile.txt glossedFile.txt outputFile.txt`  
-If filenames are omitted, default params are `ym.txt ymg.txt Freq-Count_DATESTAMP.txt`
+`./WordCount.sh -w wholeWordFile -g glossedFile -o outputFile`
+
+| Flag | Variable | Default
+| --- | --- | --- |
+| -w | wholeWordFile | ym.txt |
+| -g | glossedFile | ymg.txt |
+| -o | outputFile | Freq-Count_DATESTAMP.txt |
