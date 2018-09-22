@@ -2,26 +2,25 @@
 
 # CONFIG VARIABLES
 ignoreChars=',.?!'
-outputFileName='Freq-Count_'"$(date '+%Y-%m-%d-%H:%M:%S')"'.txt'
+# Filenames can be overwritten by user parameters
+wholeWordFile='ym.txt'
+glossFile='ymg.txt'
+outputFile='Freq-Count_'"$(date '+%Y-%m-%d-%H:%M:%S')"'.txt'
 
-if [ $1 ]
-  then
-    wholeWordFile=$1
-  else
-    wholeWordFile='ym.txt'
-fi
-if [ $2 ]
-  then
-    glossFile=$2
-  else
-    glossFile='ymg.txt'
-fi
-if [ $3 ]
-  then
-    outputFile=$3
-  else
-    outputFile=$outputFileName
-fi
+while getopts "w:g:o:" OPTION
+do
+	case $OPTION in
+		w)
+			wholeWordFile=$OPTARG
+			;;
+    g)
+			glossFile=$OPTARG
+			;;
+    o)
+			outputFile=$OPTARG
+			;;
+	esac
+done
 
 touch $outputFile
 
